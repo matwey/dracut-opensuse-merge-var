@@ -1,0 +1,24 @@
+name: ShellCheck
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install ShellCheck
+        run: |
+          apt-get update
+          apt-get install -y shellcheck
+    
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: shellcheck opensuse-merge-var.sh
