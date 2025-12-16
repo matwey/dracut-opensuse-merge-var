@@ -18,7 +18,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y shellcheck
     
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Run a one-line script
         run: shellcheck opensuse-merge-var.sh
