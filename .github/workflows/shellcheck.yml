@@ -20,5 +20,5 @@ jobs:
     
       - uses: actions/checkout@v6
 
-      - name: Run a one-line script
+      - name: Check opensuse-merge-var.sh
         run: shellcheck opensuse-merge-var.sh

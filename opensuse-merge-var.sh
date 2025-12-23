@@ -8,15 +8,23 @@ MNT_AT="/.opensuse-merge-var/at"
 MNT_ROOT="/.opensuse-merge-var/root"
 FSTAB="${ROOT}/etc/fstab"
 
-FINDMNT="/usr/bin/findmnt"
 BTRFS="/usr/sbin/btrfs"
 CHATTR="/usr/bin/chattr"
+FINDMNT="/usr/bin/findmnt"
+TOUCH="/usr/bin/touch"
 
 # Check for tools
 
 if ${FINDMNT} -F ${FSTAB} -n -M /var
 then
 	echo "Warning: /var mount point found, exiting..." >&2
+
+	exit 0
+fi
+
+if [ -e "${ROOT}/.var-merged" ]
+then
+	echo "Warning: /.var-merged exists, exiting..." >&2
 
 	exit 0
 fi
@@ -41,6 +49,7 @@ mv "${MNT_AT}/var" "${MNT_AT}/var.bak"
 mv "${MNT_ROOT}/var" "${MNT_ROOT}/var.bak"
 mv "${MNT_AT}/var.new" "${MNT_AT}/var"
 mkdir "${MNT_ROOT}/var"
+${TOUCH} "${MNT_ROOT}/.var-merged"
 umount "${MNT_ROOT}"
 umount "${MNT_AT}"
 
