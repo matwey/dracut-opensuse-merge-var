@@ -2,7 +2,7 @@
 
 ## Description
 
-`dracut-opensuse-merge-var` is a dracut module for **openSUSE distributions** that performs unified `/var` submodule migration.
+`dracut-opensuse-merge-var` is a dracut module for **openSUSE distributions** that performs [unified `/var` submodule migration](https://lists.opensuse.org/opensuse-packaging/2017-11/msg00017.html).
 
 ## Disclaimer
 
