@@ -1,21 +1,18 @@
 #!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
 
-# called by dracut
 check() {
 	return 255
 }
 
-# called by dracut
 depends() {
 	return 0
 }
 
-# called by dracut
 installkernel() {
 	return 0
 }
 
-# called by dracut
 install() {
 	inst_binary chattr
 	inst_binary touch

@@ -1,9 +1,9 @@
 #!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set -e
 
 ROOT="/sysroot"
-#ROOT="/"
 MNT_AT="/.opensuse-merge-var/at"
 MNT_ROOT="/.opensuse-merge-var/root"
 FSTAB="${ROOT}/etc/fstab"
