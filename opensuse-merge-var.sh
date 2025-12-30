@@ -13,7 +13,15 @@ CHATTR="/usr/bin/chattr"
 FINDMNT="/usr/bin/findmnt"
 TOUCH="/usr/bin/touch"
 
-# Check for tools
+for TOOL in ${BTRFS} ${CHATTR} ${FINDMNT} ${TOUCH}
+do
+	if [ ! -x "${TOOL}" ]
+	then
+		echo "Warning: ${TOOL} not found, exiting..." >&2
+
+		exit 0
+	fi
+done
 
 if ${FINDMNT} -F ${FSTAB} -n -M /var
 then

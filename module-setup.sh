@@ -14,7 +14,9 @@ installkernel() {
 }
 
 install() {
+	inst_binary btrfs
 	inst_binary chattr
+	inst_binary findmnt
 	inst_binary touch
 
 	mkdir -p "/lib/dracut/hooks/pre-pivot"
