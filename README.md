@@ -11,6 +11,8 @@ This software is provided **"as is"**, without warranty of any kind. The develop
 **Recommendations:**
 * Read and understand the module's source code before installation
 * Maintain **current backups** and alternative boot methods
+* If you are using a root Btrfs partition on LVM, consider creating a read‑only LVM snapshot of the root partition before making changes. This provides a recovery point that can be reverted to if needed.
+* Ensure there is at least as much free space as the current size of `/var`. The new layout for `/var` uses the **NOCOW** attribute, while in the existing layout some files may be **NOCOW** and others **COW**. During the migration, **NOCOW** files will be reflinked, but **COW** files must be copied, which requires additional free space.
 
 ## Installation
 
